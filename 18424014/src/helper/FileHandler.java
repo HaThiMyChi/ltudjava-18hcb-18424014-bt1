@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandler {
+    public static String dir = "src/resource";
 	public static List<String> readAllLine(String fileName) throws IOException {
 		List<String> list = new ArrayList<>();
 		File file = new File(fileName);
@@ -29,7 +30,7 @@ public class FileHandler {
 	public static void writeToFile(String content, String fileName, boolean flag) throws IOException {
 		BufferedWriter bufferedWriter =null;
 		FileWriter fileWriter = null;
-		File file = new File(fileName);
+		File file = new File(dir, fileName);
 		if(!file.exists()) {
 			file.createNewFile();
 		}

@@ -22,13 +22,9 @@ public class BaiTapTuan1GenericCollectionsFile {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        EventQueue.invokeLater(() -> {
-            SinhVien lg;
-            try {
-                lg = new SinhVien();
-                lg.setVisible(true);
-            } catch (IOException ex) {
-                Logger.getLogger(BaiTapTuan1GenericCollectionsFile.class.getName()).log(Level.SEVERE, null, ex);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainSystem().setVisible(true);
             }
         });
     }

@@ -84,6 +84,11 @@ public class MainSystem extends javax.swing.JFrame {
         btnDiem.setFocusPainted(false);
         btnDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiemActionPerformed(evt);
+            }
+        });
 
         btnDangXuat2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDangXuat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModernXP-02-System-Power-icon.png"))); // NOI18N
@@ -215,6 +220,13 @@ public class MainSystem extends javax.swing.JFrame {
         jDesktopPane1.removeAll();
         jDesktopPane1.add(tkb);
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
+
+    private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed
+        // TODO add your handling code here:
+        dsadasd ad = new dsadasd();
+        ad.setVisible(true);
+        jDesktopPane1.add(ad);
+    }//GEN-LAST:event_btnDiemActionPerformed
 
     /**
      * @param args the command line arguments
