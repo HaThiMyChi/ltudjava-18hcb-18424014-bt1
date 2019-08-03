@@ -27,15 +27,13 @@ public class MainSystem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnThongTinChung2 = new javax.swing.JPanel();
-        btnChangePassword2 = new javax.swing.JButton();
-        btnDangXuat2 = new javax.swing.JButton();
         pnChucNang = new javax.swing.JPanel();
         btnDanhSachLop = new javax.swing.JButton();
         btnThoiKhoaBieu = new javax.swing.JButton();
         btnDiem = new javax.swing.JButton();
-        pnHoTro = new javax.swing.JPanel();
+        btnDangXuat2 = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
+        btnChangePassword2 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -43,45 +41,6 @@ public class MainSystem extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ SINH VIÊN");
-
-        pnThongTinChung2.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin chung"));
-        pnThongTinChung2.setName(""); // NOI18N
-
-        btnChangePassword2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnChangePassword2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator-icon.png"))); // NOI18N
-        btnChangePassword2.setText("Đổi Mật Khẩu");
-        btnChangePassword2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnChangePassword2.setFocusPainted(false);
-        btnChangePassword2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnChangePassword2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btnDangXuat2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnDangXuat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModernXP-02-System-Power-icon.png"))); // NOI18N
-        btnDangXuat2.setText("Đăng Xuất");
-        btnDangXuat2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDangXuat2.setFocusPainted(false);
-        btnDangXuat2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnDangXuat2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        javax.swing.GroupLayout pnThongTinChung2Layout = new javax.swing.GroupLayout(pnThongTinChung2);
-        pnThongTinChung2.setLayout(pnThongTinChung2Layout);
-        pnThongTinChung2Layout.setHorizontalGroup(
-            pnThongTinChung2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnThongTinChung2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnChangePassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDangXuat2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-        pnThongTinChung2Layout.setVerticalGroup(
-            pnThongTinChung2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnThongTinChung2Layout.createSequentialGroup()
-                .addGroup(pnThongTinChung2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnChangePassword2, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                    .addComponent(btnDangXuat2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         pnChucNang.setBorder(javax.swing.BorderFactory.createTitledBorder("Chức năng"));
 
@@ -116,30 +75,13 @@ public class MainSystem extends javax.swing.JFrame {
         btnDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        javax.swing.GroupLayout pnChucNangLayout = new javax.swing.GroupLayout(pnChucNang);
-        pnChucNang.setLayout(pnChucNangLayout);
-        pnChucNangLayout.setHorizontalGroup(
-            pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnChucNangLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        pnChucNangLayout.setVerticalGroup(
-            pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnChucNangLayout.createSequentialGroup()
-                .addGroup(pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDanhSachLop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        pnHoTro.setBorder(javax.swing.BorderFactory.createTitledBorder("Hỗ trợ"));
+        btnDangXuat2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDangXuat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModernXP-02-System-Power-icon.png"))); // NOI18N
+        btnDangXuat2.setText("Đăng Xuất");
+        btnDangXuat2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDangXuat2.setFocusPainted(false);
+        btnDangXuat2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDangXuat2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnThoat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Alarm-Error-icon.png"))); // NOI18N
@@ -154,20 +96,46 @@ public class MainSystem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnHoTroLayout = new javax.swing.GroupLayout(pnHoTro);
-        pnHoTro.setLayout(pnHoTroLayout);
-        pnHoTroLayout.setHorizontalGroup(
-            pnHoTroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnHoTroLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+        btnChangePassword2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnChangePassword2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator-icon.png"))); // NOI18N
+        btnChangePassword2.setText("Đổi Mật Khẩu");
+        btnChangePassword2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnChangePassword2.setFocusPainted(false);
+        btnChangePassword2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnChangePassword2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout pnChucNangLayout = new javax.swing.GroupLayout(pnChucNang);
+        pnChucNang.setLayout(pnChucNangLayout);
+        pnChucNangLayout.setHorizontalGroup(
+            pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnChucNangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDangXuat2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnChangePassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnHoTroLayout.setVerticalGroup(
-            pnHoTroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnHoTroLayout.createSequentialGroup()
-                .addComponent(btnThoat)
-                .addGap(0, 0, Short.MAX_VALUE))
+        pnChucNangLayout.setVerticalGroup(
+            pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnChucNangLayout.createSequentialGroup()
+                .addGroup(pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDangXuat2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDanhSachLop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnChucNangLayout.createSequentialGroup()
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnChangePassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -178,7 +146,7 @@ public class MainSystem extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 301, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -193,21 +161,16 @@ public class MainSystem extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnThongTinChung2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnHoTro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jDesktopPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnThongTinChung2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnHoTro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnChucNang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -264,11 +227,7 @@ public class MainSystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChangePassword;
-    private javax.swing.JButton btnChangePassword1;
     private javax.swing.JButton btnChangePassword2;
-    private javax.swing.JButton btnDangXuat;
-    private javax.swing.JButton btnDangXuat1;
     private javax.swing.JButton btnDangXuat2;
     private javax.swing.JButton btnDanhSachLop;
     private javax.swing.JButton btnDiem;
@@ -279,9 +238,5 @@ public class MainSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel pnChucNang;
-    private javax.swing.JPanel pnHoTro;
-    private javax.swing.JPanel pnThongTinChung;
-    private javax.swing.JPanel pnThongTinChung1;
-    private javax.swing.JPanel pnThongTinChung2;
     // End of variables declaration//GEN-END:variables
 }
