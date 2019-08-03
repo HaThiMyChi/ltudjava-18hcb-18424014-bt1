@@ -5,6 +5,11 @@
  */
 package form;
 
+import form.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Ha Chi
@@ -66,6 +71,11 @@ public class MainSystem extends javax.swing.JFrame {
         btnThoiKhoaBieu.setFocusPainted(false);
         btnThoiKhoaBieu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThoiKhoaBieu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnThoiKhoaBieu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoiKhoaBieuActionPerformed(evt);
+            }
+        });
 
         btnDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graduated-icon.png"))); // NOI18N
@@ -146,7 +156,7 @@ public class MainSystem extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 304, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -171,7 +181,7 @@ public class MainSystem extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
         );
@@ -181,9 +191,16 @@ public class MainSystem extends javax.swing.JFrame {
 
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
         // TODO add your handling code here:
-//        Student st = new Student();
-//        st.setVisible(true);
-//        jDesktopPane1.add(st);
+        SinhVien st;
+        try {
+            st = new SinhVien();
+            st.setVisible(true);
+            jDesktopPane1.removeAll();
+            jDesktopPane1.add(st);
+        } catch (IOException ex) {
+            Logger.getLogger(MainSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
@@ -191,40 +208,17 @@ public class MainSystem extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
 
+    private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
+        // TODO add your handling code here:
+        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+        tkb.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(tkb);
+    }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainSystem().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangePassword2;

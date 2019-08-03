@@ -116,10 +116,20 @@ public class LoginForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        Login();
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    public void Login() {
         try {
             FileReader fr = new FileReader("src/resource/user.csv");
             BufferedReader br = new BufferedReader(fr);
@@ -131,7 +141,7 @@ public class LoginForm extends javax.swing.JFrame {
                 if (first) {
                     first = false;
                 } else {
-                    str = line.split(",");
+                    str = line.split(" ");
                     line = br.readLine();
                     user.setUsername(str[0]);
                     user.setPassword(str[1]);
@@ -153,14 +163,11 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.toString());
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "File đã bị lỗi!");
-        }
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_btnCancelActionPerformed
-
+        }   
+    }
+   
+    
+    
     /**
      * @param args the command line arguments
      */
