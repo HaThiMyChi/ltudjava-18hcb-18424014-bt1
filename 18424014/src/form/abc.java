@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package form;
-import static form.abc.filename;
+
 import helper.FileHandler;
 import java.io.File;
 import java.io.IOException;
@@ -23,21 +23,24 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Ha Chi
  */
-public class SinhVien extends javax.swing.JInternalFrame {
+public final class abc extends javax.swing.JFrame {
+
     private final JFileChooser filestudent;
     private String folder, filename;
 
     /**
      * Creates new form SinhVien
+     *
+     * @throws java.io.IOException
      */
-      public SinhVien() throws IOException {
+    public abc() throws IOException {
         initComponents();
         filestudent = new JFileChooser();
         filestudent.setCurrentDirectory(new File("C:\\Users\\Ha Chi\\Desktop"));
         filestudent.setFileFilter(new FileNameExtensionFilter("File CSV", "csv"));
         Loadlistlop();
     }
-      
+
     public void Loadlistlop() {
         try {
             File f = new File("src/resource");
@@ -49,7 +52,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
             ex.getMessage();
         }
     }
-    
+
     private void LoadSinhVien(String filename) throws IOException {
         List<SinhVienObj> lst = new ArrayList<>();
         List<String> list = FileHandler.readAllLine(filename);
@@ -96,6 +99,8 @@ public class SinhVien extends javax.swing.JInternalFrame {
         cbxLop = new javax.swing.JComboBox<>();
         btnThemSinhVien = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         pnDanhSachSinhVien.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh Sách Sinh Viên"));
 
         tblDanhSach.setAutoCreateRowSorter(true);
@@ -137,15 +142,15 @@ public class SinhVien extends javax.swing.JInternalFrame {
             pnDanhSachSinhVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnDanhSachSinhVienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnDanhSachSinhVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnDanhSachSinhVienLayout.createSequentialGroup()
-                        .addComponent(cbxLop, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnThemSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(cbxLop, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnThemSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnDanhSachSinhVienLayout.createSequentialGroup()
+                .addComponent(spDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, 973, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         pnDanhSachSinhVienLayout.setVerticalGroup(
             pnDanhSachSinhVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +162,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
                     .addComponent(btnThemSinhVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(spDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,10 +176,9 @@ public class SinhVien extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnDanhSachSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pnDanhSachSinhVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,18 +201,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
         return str;
     }
 
-    private void cbxLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopActionPerformed
-
-    }//GEN-LAST:event_cbxLopActionPerformed
-
-    private void btnThemSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSinhVienActionPerformed
-        // TODO add your handling code here:
-        AddStudent ad = new AddStudent();
-        ad.setVisible(true);
-    }//GEN-LAST:event_btnThemSinhVienActionPerformed
-
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
-        // TODO add your handling code here:
         int returnvalue = filestudent.showOpenDialog(this);
         String dir = "src/resource";
         if (returnvalue == JFileChooser.APPROVE_OPTION) {
@@ -231,7 +224,55 @@ public class SinhVien extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
- 
+
+    private void cbxLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopActionPerformed
+
+    }//GEN-LAST:event_cbxLopActionPerformed
+
+    private void btnThemSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSinhVienActionPerformed
+        // TODO add your handling code here:
+        AddStudent ad = new AddStudent();
+        ad.setVisible(true);
+    }//GEN-LAST:event_btnThemSinhVienActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(abc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(abc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(abc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(abc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDanhSachLop;
     private javax.swing.JButton btnThemSinhVien;
@@ -240,10 +281,4 @@ public class SinhVien extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane spDanhSach;
     private javax.swing.JTable tblDanhSach;
     // End of variables declaration//GEN-END:variables
-
-    private static class filestudent {
-
-        public filestudent() {
-        }
-    }
 }

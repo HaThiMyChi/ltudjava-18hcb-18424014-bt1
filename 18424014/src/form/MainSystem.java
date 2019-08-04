@@ -196,9 +196,9 @@ public class MainSystem extends javax.swing.JFrame {
 
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
         // TODO add your handling code here:
-        SinhVien st;
+        abc st;
         try {
-            st = new SinhVien();
+            st = new abc();
             st.setVisible(true);
             jDesktopPane1.removeAll();
             jDesktopPane1.add(st);
@@ -223,9 +223,14 @@ public class MainSystem extends javax.swing.JFrame {
 
     private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed
         // TODO add your handling code here:
-        dsadasd ad = new dsadasd();
-        ad.setVisible(true);
-        jDesktopPane1.add(ad);
+        SinhVien ad;
+        try {
+            ad = new SinhVien();
+            ad.setVisible(true);
+            jDesktopPane1.add(ad);
+        } catch (IOException ex) {
+            Logger.getLogger(MainSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }//GEN-LAST:event_btnDiemActionPerformed
 
     /**
