@@ -5,12 +5,20 @@
  */
 package form;
 
+import static form.SinhVien.filename;
 import helper.FileHandler;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import model.SinhVienObj;
 import model.ThoiKhoaBieuObj;
 
 /**
@@ -19,14 +27,35 @@ import model.ThoiKhoaBieuObj;
  */
 public class ThoiKhoaBieu extends javax.swing.JInternalFrame {
 
+    private final JFileChooser filesThoiKhoaBieu;
+    private String folder, filename;
+
     /**
      * Creates new form ThoiKhoaBieu
+     * @throws java.io.IOException
      */
-    public ThoiKhoaBieu() {
+    public ThoiKhoaBieu() throws IOException {
         initComponents();
+        filesThoiKhoaBieu = new JFileChooser();
+        filesThoiKhoaBieu.setCurrentDirectory(new File("C:\\Users\\Ha Chi\\Desktop"));
+        filesThoiKhoaBieu.setFileFilter(new FileNameExtensionFilter("File CSV", "csv"));
+        LoadlistThoiKhoaBieu();
+        LoadThoiKhoaBieu(filename);
     }
-    
-    private void LoadSinhVien(String filename) throws IOException {
+
+    public void LoadlistThoiKhoaBieu() {
+        try {
+            File f = new File("src/resource/ThoiKhoaBieut");
+            String[] files = f.list();
+            for (String file : files) {
+                cbxMonHoc.addItem(filename(file, '/', '.'));
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+    }
+
+    private void LoadThoiKhoaBieu(String filename) throws IOException {
         List<ThoiKhoaBieuObj> lst = new ArrayList<>();
         List<String> list = FileHandler.readAllLine(filename);
         if (!list.isEmpty()) {
@@ -45,15 +74,31 @@ public class ThoiKhoaBieu extends javax.swing.JInternalFrame {
                 Vector row = new Vector();
                 String number = Integer.toString(i);
                 row.add(number);
-                row.add(st.getMaSV());
-                row.add(st.getTenSV());
-                row.add(st.getGioiTinh());
-                row.add(st.getDiaChi());
+                row.add(st.getMaMon());
+                row.add(st.getTenMon());
+                row.add(st.getPhongHoc());
                 model.addRow(row);
                 i++;
             }
-            tblDanhSach.setModel(model);
+            tblThoiKhoaBieu.setModel(model);
         }
+    }
+
+    public static String filename(String str, char sep, char ext) {
+        String fullpath = str;
+        int dot1 = fullpath.lastIndexOf(ext);
+        int sep1 = fullpath.lastIndexOf(sep);
+        return fullpath.substring(sep1 + 1, dot1);
+    }
+
+    public String convertObjectToString(List<SinhVienObj> lstnew) {
+        String str = "";
+        for (SinhVienObj sv : lstnew) {
+            if (sv != null) {
+                str += sv.convertObjectToString(sv) + "\n";
+            }
+        }
+        return str;
     }
 
     /**
@@ -143,11 +188,39 @@ public class ThoiKhoaBieu extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
-
+        int returnvalue = filesThoiKhoaBieu.showOpenDialog(this);
+        String dir = "src/resource/ThoiKhoaBieu";
+        if (returnvalue == JFileChooser.APPROVE_OPTION) {
+            File file = filesThoiKhoaBieu.getSelectedFile();
+            try {
+                filename = file.toString();
+                String files = filename(filename, '\\', '.');
+                File f = new File(dir, files + ".csv");
+                if (f.exists()) {
+                    JOptionPane.showMessageDialog(this, "File này đã có, nếu bạn muốn thêm sinh viên vào lớp thì thêm vào phần bên trái");
+                } else {
+                    List<String> lstimportdanhsach = FileHandler.readAllLineFileImport(filename);
+                    int size = lstimportdanhsach.size();
+                    for (int i = 0; i < size; i++) {
+                        FileHandler.writeToFile(lstimportdanhsach.get(i), files + ".csv", true);
+                    }
+                    cbxMonHoc.removeAllItems();
+                    LoadlistThoiKhoaBieu();
+                    LoadThoiKhoaBieu(files + ".csv");
+                }
+            } catch (Exception ex) {
+                ex.getMessage();
+            }
+        }
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void cbxMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMonHocActionPerformed
-
+        filename = cbxMonHoc.getSelectedItem() + ".csv";
+        try {
+            LoadThoiKhoaBieu(filename);
+        } catch (IOException ex) {
+            Logger.getLogger(ThoiKhoaBieu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cbxMonHocActionPerformed
 
 

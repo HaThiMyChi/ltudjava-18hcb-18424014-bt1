@@ -215,10 +215,15 @@ public class MainSystem extends javax.swing.JFrame {
 
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
         // TODO add your handling code here:
-        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
-        tkb.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(tkb);
+        ThoiKhoaBieu tkb;
+        try {
+            tkb = new ThoiKhoaBieu();
+            tkb.setVisible(true);
+            jDesktopPane1.removeAll();
+            jDesktopPane1.add(tkb);
+        } catch (IOException ex) {
+            Logger.getLogger(MainSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed
@@ -230,7 +235,7 @@ public class MainSystem extends javax.swing.JFrame {
             jDesktopPane1.add(ad);
         } catch (IOException ex) {
             Logger.getLogger(MainSystem.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        }
     }//GEN-LAST:event_btnDiemActionPerformed
 
     /**

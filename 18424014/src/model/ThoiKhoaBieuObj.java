@@ -14,6 +14,10 @@ public class ThoiKhoaBieuObj {
     private String TenMon;
     private String PhongHoc;
 
+    public ThoiKhoaBieuObj(String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the MaMon
      */
