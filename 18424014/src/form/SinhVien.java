@@ -46,7 +46,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
             String[] files = f.list();
             for (String file : files) {
                 cbxLop.addItem(filename(file, '/', '.'));
-            }
+            }           
         } catch (Exception ex) {
             ex.getMessage();
         }

@@ -15,7 +15,7 @@ public class FileHandler {
 
     public static List<String> readAllLine(String fileName) throws IOException {
         List<String> list = new ArrayList<>();
-        File file = new File(fileName);
+        File file = new File(dir, fileName);
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String readLine = "";
         try {

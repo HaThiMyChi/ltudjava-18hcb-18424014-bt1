@@ -5,7 +5,6 @@
  */
 package form;
 
-import Information.Validation;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -68,7 +67,6 @@ public class LoginForm extends javax.swing.JFrame {
         txtUserName = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         txtPassword1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,13 +94,6 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Đổi mật khẩu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,17 +109,15 @@ public class LoginForm extends javax.swing.JFrame {
                                 .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Username)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                 .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(61, 61, 61)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
+                        .addGap(44, 44, 44)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -148,10 +137,9 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(Password)
                     .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -169,57 +157,10 @@ public class LoginForm extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public void Login() {
 
-        List<userlogin> userlogin1 = new ArrayList<>();
-        try {
-            FileReader fr = new FileReader("src/resource/user.csv");
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while (line != null) {
-                String[] attributes = line.split(",");
-                userlogin user = createuser(attributes);
-                userlogin1.add(user);
-                line = br.readLine();
-            }
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.toString());
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "File đã bị lỗi!");
-        }
-
-        UserObj user = new UserObj();
-
-        try {
-            for (int i = 0; i < userlogin1.size(); i++) {
-//                if ((String.valueOf(jTextField1.getText()) == userlogin1.get(i).username) && (String.valueOf(txtPassword.getPassword) == userlogin1.get(i).pass)) {
-//                    user.setUsername(userlogin1.get(i).username);
-//                    user.setPassword(userlogin1.get(i).pass);
-//                    break;
-//                }
-                if (i == (userlogin1.size() - 1)) {
-                    JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thất bại!");
-                    System.exit(0);
-                }
-            }
-
-            this.setVisible(false);
-            MainSystem sv = new MainSystem();
-            sv.setVisible(true);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "File đã bị lỗi!");
-        }
     }
-}
 
-
-   
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -234,52 +175,24 @@ public class LoginForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-
-
-
-
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(LoginForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-
-
-} catch (InstantiationException ex) {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(LoginForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-
-
-} catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(LoginForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginForm.class
-
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -296,7 +209,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel Username;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField txtPassword1;
     private javax.swing.JPasswordField txtUserName;

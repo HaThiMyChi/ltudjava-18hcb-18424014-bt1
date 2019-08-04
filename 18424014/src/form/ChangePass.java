@@ -130,48 +130,6 @@ public class ChangePass extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
               // TODO add your handling code here:
-         List<userlogin> userlogin1 = new ArrayList<>();
-            try{
-            FileReader fr = new FileReader("src/resource/user.csv");
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while (line != null) {
-                String[] attributes = line.split(",");
-                userlogin user = createuser(attributes);
-                userlogin1.add(user);
-                line = br.readLine();
-            }
-            }catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.toString());
-            } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "File đã bị lỗi!");
-            }
-            
-            UserObj user = new UserObj();
-            
-            for (int i = 0; i < userlogin1.size(); i++) {
-			if(JTextField1.getText()==userlogin1.get(i).username);
-		}                    
-                    user.setUsername(str[0]);
-                    user.setPassword(str[1]);
-                    String userName = jTextField1.getText();
-                    String passWord = new String(jPasswordField1.getPassword());
-                    if (userName.equals(user.getUsername()) && passWord.equals(user.getPassword())) {
-                        if (jPasswordField2.getPassword() == jPasswordField3.getPassword())
-                        {
-                            
-                        }
-                        else
-                        {
-                             JOptionPane.showMessageDialog(this, "Sai pass moi");
-                        }
-                    }
-                    if (find == false) {
-                JOptionPane.showMessageDialog(this, "Sai ten dang nhap hoac pass");
-            
-                }
-            }
-            
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
