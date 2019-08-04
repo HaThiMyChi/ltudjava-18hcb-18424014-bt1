@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package form;
+
 import static form.abc.filename;
 import helper.FileHandler;
 import java.io.File;
@@ -24,20 +25,22 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Ha Chi
  */
 public class SinhVien extends javax.swing.JInternalFrame {
+
     private final JFileChooser filestudent;
     private String folder, filename;
 
     /**
      * Creates new form SinhVien
      */
-      public SinhVien() throws IOException {
+    public SinhVien() throws IOException {
         initComponents();
         filestudent = new JFileChooser();
         filestudent.setCurrentDirectory(new File("C:\\Users\\Ha Chi\\Desktop"));
         filestudent.setFileFilter(new FileNameExtensionFilter("File CSV", "csv"));
         Loadlistlop();
+        LoadSinhVien(filename);
     }
-      
+
     public void Loadlistlop() {
         try {
             File f = new File("src/resource");
@@ -49,7 +52,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
             ex.getMessage();
         }
     }
-    
+
     private void LoadSinhVien(String filename) throws IOException {
         List<SinhVienObj> lst = new ArrayList<>();
         List<String> list = FileHandler.readAllLine(filename);
@@ -198,12 +201,18 @@ public class SinhVien extends javax.swing.JInternalFrame {
     }
 
     private void cbxLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopActionPerformed
-
+        filename = cbxLop.getSelectedItem() + ".csv";
+        try {
+            LoadSinhVien(filename);
+        } catch (IOException ex) {
+            Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cbxLopActionPerformed
 
     private void btnThemSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSinhVienActionPerformed
         // TODO add your handling code here:
-        AddStudent ad = new AddStudent();
+        // TODO add your handling code here:
+        AddSV ad = new AddSV();
         ad.setVisible(true);
     }//GEN-LAST:event_btnThemSinhVienActionPerformed
 
@@ -220,8 +229,11 @@ public class SinhVien extends javax.swing.JInternalFrame {
                 if (f.exists()) {
                     JOptionPane.showMessageDialog(this, "File này đã có, nếu bạn muốn thêm sinh viên vào lớp thì thêm vào phần bên trái");
                 } else {
-                    List<String> lstimportdanhsach = FileHandler.readAllLine(filename);
-                    FileHandler.writeToFile(lstimportdanhsach.toString(), files + ".csv", false);
+                    List<String> lstimportdanhsach = FileHandler.readAllLineFileImport(filename);
+                    int size = lstimportdanhsach.size();
+                    for (int i = 0; i < size; i++) {
+                        FileHandler.writeToFile(lstimportdanhsach.get(i), files + ".csv", true);
+                    }
                     cbxLop.removeAllItems();
                     Loadlistlop();
                     LoadSinhVien(files + ".csv");
@@ -231,7 +243,7 @@ public class SinhVien extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDanhSachLop;
     private javax.swing.JButton btnThemSinhVien;
