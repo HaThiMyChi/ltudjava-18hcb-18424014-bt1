@@ -5,6 +5,14 @@
  */
 package form;
 
+import helper.FileHandler;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import model.ThoiKhoaBieuObj;
+
 /**
  *
  * @author Ha Chi
@@ -16,6 +24,36 @@ public class ThoiKhoaBieu extends javax.swing.JInternalFrame {
      */
     public ThoiKhoaBieu() {
         initComponents();
+    }
+    
+    private void LoadSinhVien(String filename) throws IOException {
+        List<ThoiKhoaBieuObj> lst = new ArrayList<>();
+        List<String> list = FileHandler.readAllLine(filename);
+        if (!list.isEmpty()) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                String[] str = list.get(i).split(",");
+                ThoiKhoaBieuObj tkb = new ThoiKhoaBieuObj(str[0], str[1], str[2]);
+                lst.add(tkb);
+            }
+            DefaultTableModel model = (DefaultTableModel) tblThoiKhoaBieu.getModel();
+            model.setRowCount(0);
+            String[] columnsName = {"STT", "Mã môn", "Tên môn", "Phòng học"};
+            model.setColumnIdentifiers(columnsName);
+            int i = 1;
+            for (ThoiKhoaBieuObj st : lst) {
+                Vector row = new Vector();
+                String number = Integer.toString(i);
+                row.add(number);
+                row.add(st.getMaSV());
+                row.add(st.getTenSV());
+                row.add(st.getGioiTinh());
+                row.add(st.getDiaChi());
+                model.addRow(row);
+                i++;
+            }
+            tblDanhSach.setModel(model);
+        }
     }
 
     /**

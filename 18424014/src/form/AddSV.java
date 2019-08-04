@@ -5,17 +5,47 @@
  */
 package form;
 
+import java.io.File;
+import java.util.*;
+import model.*;
+import helper.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Ha Chi
  */
 public class AddSV extends javax.swing.JFrame {
 
+    private String folder, filename;
+
     /**
      * Creates new form AddSV
      */
     public AddSV() {
         initComponents();
+        Loadlistlop();
+    }
+
+    public void Loadlistlop() {
+        try {
+            File f = new File("src/resource");
+            String[] files = f.list();
+            for (String file : files) {
+                cbbLop.addItem(filename(file, '/', '.'));
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+    }
+
+    public static String filename(String str, char sep, char ext) {
+        String fullpath = str;
+        int dot1 = fullpath.lastIndexOf(ext);
+        int sep1 = fullpath.lastIndexOf(sep);
+        return fullpath.substring(sep1 + 1, dot1);
     }
 
     /**
@@ -84,6 +114,11 @@ public class AddSV extends javax.swing.JFrame {
         jLabel1.setText("Lớp:");
 
         cbbLop.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cbbLop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbLopActionPerformed(evt);
+            }
+        });
 
         btnThem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThem.setText("Thêm");
@@ -199,9 +234,47 @@ public class AddSV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public String convertObjectToString(List<SinhVienObj> lstnew) {
+        String str = "";
+        for (SinhVienObj sv : lstnew) {
+            if (sv != null) {
+                str += sv.convertObjectToString(sv) + "\n";
+            }
+        }
+        return str;
+    }
+    
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            List<String> lstsv = FileHandler.readAllLine(filename);
+            String mssv = txtMSSV.getText();
+            String hoten = txtHoTen.getText();
+            String lop = cbbLop.getSelectedItem() + ".csv";
+            String gioitinh = null;
+            if (radNam.isSelected()) {
+                gioitinh = "Nam";
+            } else {
+                if (radNu.isSelected()) {
+                    gioitinh = "Nữ";
+                }
+            }
+            String cmnd = txtCMND.getText();
+            List<SinhVienObj> lst = new ArrayList<>();
+            SinhVienObj sv = new SinhVienObj(mssv, hoten, gioitinh, cmnd);
+            lst.add(sv);
+            String str = convertObjectToString(lst);
+            FileHandler.writeToFile(str, filename, true);
+            this.setVisible(false);
+        } catch (IOException ex) {
+            Logger.getLogger(AddSV.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnThemActionPerformed
+
+    private void cbbLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbLopActionPerformed
+        // TODO add your handling code here:
+        filename = cbbLop.getSelectedItem() + ".csv";
+    }//GEN-LAST:event_cbbLopActionPerformed
 
     /**
      * @param args the command line arguments
