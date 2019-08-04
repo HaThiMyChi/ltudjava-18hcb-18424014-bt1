@@ -149,9 +149,8 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -197,11 +196,11 @@ public class LoginForm extends javax.swing.JFrame {
 
         try {
             for (int i = 0; i < userlogin1.size(); i++) {
-                if ((String.valueOf(jTextField1.getText()) == userlogin1.get(i).username) && (String.valueOf(txtPassword.getPassword) == userlogin1.get(i).pass)) {
-                    user.setUsername(userlogin1.get(i).username);
-                    user.setPassword(userlogin1.get(i).pass);
-                    break;
-                }
+//                if ((String.valueOf(jTextField1.getText()) == userlogin1.get(i).username) && (String.valueOf(txtPassword.getPassword) == userlogin1.get(i).pass)) {
+//                    user.setUsername(userlogin1.get(i).username);
+//                    user.setPassword(userlogin1.get(i).pass);
+//                    break;
+//                }
                 if (i == (userlogin1.size() - 1)) {
                     JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thất bại!");
                     System.exit(0);

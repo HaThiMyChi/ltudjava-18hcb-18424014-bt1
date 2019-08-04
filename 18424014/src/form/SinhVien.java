@@ -5,7 +5,6 @@
  */
 package form;
 
-import static form.abc.filename;
 import helper.FileHandler;
 import java.io.File;
 import java.io.IOException;

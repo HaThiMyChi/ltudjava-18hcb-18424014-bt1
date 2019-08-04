@@ -196,9 +196,9 @@ public class MainSystem extends javax.swing.JFrame {
 
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
         // TODO add your handling code here:
-        abc st;
+        SinhVien st;
         try {
-            st = new abc();
+            st = new SinhVien();
             st.setVisible(true);
             jDesktopPane1.removeAll();
             jDesktopPane1.add(st);
